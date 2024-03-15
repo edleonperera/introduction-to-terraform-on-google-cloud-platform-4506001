@@ -2,9 +2,9 @@ module "app_network" {
   source  = "terraform-google-modules/network/google"
   version = "9.0.0"
   # insert the 3 required variables here
+  
   network_name = "$(var.network_name)-network"
   project_id   = var.project_id
-
   subnets =[
         {
             subnet_name           = "${var.network_name}-subnet0"
@@ -12,7 +12,7 @@ module "app_network" {
             subnet_region         = var.region
         }
         ]
-        ingress_rules = [
+ingress_rules = [
     {
     name                    = "$(var.network_name)-web'
     description             = "inbound web"
@@ -27,11 +27,6 @@ module "app_network" {
 }
         ]
 }
-
-variable "GOOGLE_CREDENTIALS" {
-    type = string
-}
-
 data "google_compute_image" "ubuntu" {
   most_recent = true
   project     = var.image_project
