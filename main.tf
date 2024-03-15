@@ -27,7 +27,7 @@ resource "google_compute_instance" "blog" {
     }
   }
   network_interface {
-   subnetwork = goodle_compute_subnetwork.app.name
+   subnetwork = var.network_name
    access_config {
       # Leave empty for dynamic public IP
     }
