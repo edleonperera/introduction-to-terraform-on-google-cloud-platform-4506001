@@ -22,11 +22,7 @@ variable "image_project" {
     type    = string
     default = "ubuntu-os-cloud"
 }
-variable "imag_family" {
-    type    = string
-    default = "ubuntu-2204-lts"
-}
-variable "imag_family" {
+variable "image_family" {
     type    = string
     default = "ubuntu-2204-lts"
 }
