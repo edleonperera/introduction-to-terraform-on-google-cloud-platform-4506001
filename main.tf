@@ -1,6 +1,6 @@
 module "app_network" {
   source  = "terraform-google-modules/network/google"
-  version = "9.0.0"
+  version = "8.1.0"
   # insert the 3 required variables here
   
   network_name = "${var.network_name}-network"
@@ -49,4 +49,5 @@ resource "google_compute_instance" "blog" {
   }
   metadata_startup_script = "apt -y update; apt -y install nginx; echo ${var.app_name} > /var/www/html/index.html"
   allow_stopping_for_update = true
+}
 }
