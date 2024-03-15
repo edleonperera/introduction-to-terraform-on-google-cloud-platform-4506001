@@ -2,13 +2,9 @@ variable "project_id" {
     type    =   string
     default =   "plated-mechanic-417304"
 }
-variable    ="region" {
+variable "region"   {
     type    = string
     default ="us-west1-a"
-}
-variable              {
-    type    = string
-    default =
 }
 variable "network_name" {
     type    = string
