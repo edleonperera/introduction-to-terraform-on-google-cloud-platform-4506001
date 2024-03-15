@@ -1,8 +1,7 @@
 module "app_network" {
   source  = "terraform-google-modules/network/google"
   version = "8.1.0"
-  # insert the 3 required variables here
-  
+
   network_name = "${var.network_name}-network"
   project_id   = var.project_id
   subnets = [
@@ -12,10 +11,13 @@ module "app_network" {
             subnet_region = var.region
         }
         ]
+}
+
+
 ingress_rules = [
     {
     name  = "${var.network_name}-web'
-    description = "inbound web"
+    description = "Inbound web"
     source_ranges = ["0.0.0.0/0"]
     target_tags = ["${var.network_name}-web"]
     allow = [
@@ -23,9 +25,10 @@ ingress_rules = [
       protocol = "tcp"
       ports    = ["80","443"]
       }
-        ]
-    }
-]
+    ]
+  }
+ ]
+
 data "google_compute_image" "ubuntu" {
   most_recent = true
   project     = var.image_project
