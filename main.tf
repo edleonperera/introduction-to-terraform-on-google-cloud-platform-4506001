@@ -3,21 +3,21 @@ module "app_network" {
   version = "9.0.0"
   # insert the 3 required variables here
   
-  network_name = "$(var.network_name)-network"
+  network_name = "${var.network_name}-network"
   project_id   = var.project_id
-  subnets =[
+  subnets = [
         {
-            subnet_name           = "${var.network_name}-subnet0"
-            subnet_ip             = var.network_ip_range
-            subnet_region         = var.region
+            subnet_name = "${var.network_name}-subnet0"
+            subnet_ip = var.network_ip_range
+            subnet_region = var.region
         }
         ]
 ingress_rules = [
     {
-    name                    = "$(var.network_name)-web'
-    description             = "inbound web"
-    source_ranges           = ["0.0.0.0/0"]
-    target_tags             = ["${var.network_name}-web"]
+    name  = "${var.network_name}-web'
+    description = "inbound web"
+    source_ranges = ["0.0.0.0/0"]
+    target_tags = ["${var.network_name}-web"]
     allow = [
       {
       protocol = "tcp"
