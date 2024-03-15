@@ -1,3 +1,6 @@
+variable "GOOGLE_CREDENTIALS" {
+    type = string
+}
 resource "google_compute_network" "app" {
   name                    = "test-app"
   auto_create_subnetworks = false
