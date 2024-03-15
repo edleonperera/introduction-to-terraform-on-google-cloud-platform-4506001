@@ -24,9 +24,8 @@ ingress_rules = [
       ports    = ["80","443"]
       }
         ]
-}
-        ]
-}
+    }
+]
 data "google_compute_image" "ubuntu" {
   most_recent = true
   project     = var.image_project
